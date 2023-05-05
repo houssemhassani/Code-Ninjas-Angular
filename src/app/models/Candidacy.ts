@@ -8,10 +8,10 @@ export class Candidacy{
 
     
      idCandidacy!:number ;
-     candidate?:User ;
+     candidate!:User ;
      offer!:Offer;
      appointment?:Appointment ;
-     dateCreation?:Date ;
+     dateCreation!:Date ;
      typeCandidacy?:TypeCandidacy;
      feedbacks?:  Array<Feedback> ;
 }

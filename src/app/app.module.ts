@@ -46,6 +46,7 @@ import { RegisterComponent } from './register/register.component';
 import { ListCandidaturesComponent } from './list-candidatures/list-candidatures.component';
 import { ListofferComponent } from './listoffer/listoffer.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -90,13 +91,15 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
     RegisterComponent,
     ListCandidaturesComponent,
     ListofferComponent,
-    AddOfferComponent
+    AddOfferComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
     
   ],
   providers: [{provide : HTTP_INTERCEPTORS,useClass:RequestInterceptor,multi:true}],

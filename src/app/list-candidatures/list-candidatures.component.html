@@ -14,15 +14,26 @@
           <div class="col-lg-12">
              <div class="card">
                 <div class="card-body">
-                   <h5 class="card-title">List of Candidacies</h5>
-                   <p></p>
-                   <table class="table datatable">
+                   <h5 class="card-title">List of Candidacies </h5>
+                
+                   <div class="row mb-3">
+                     <legend class="col-form-label col-sm-2 pt-0">Filter By :</legend>
+                     <div class="col-sm-10">
+                        <div class="form-check"> <input class="form-check-input" type="checkbox" id="recent"(click)="onSort()"> <label class="form-check-label" for="gridCheck1"> Recent Candidacy </label></div>
+                        <div class="form-check"> <input class="form-check-input" type="checkbox" id="processing" (click)="onProcessing()"> <label class="form-check-label" for="gridCheck2"> Candidacy On Processing </label></div>
+                        <div class="form-check"> <input class="form-check-input" type="checkbox" id="accepted" (click)="onAccepted()"> <label class="form-check-label" for="gridCheck2"> Candidacy Accepted </label></div>
+                     </div>
+                  </div>
+            
+                  
+                   <table class="table ">
+                     
                       <thead>
                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Expiration date of Offer</th>
-                            <th scope="col">Creation Date of Candidacy</th>
-                            <th scope="col">Candidacy Type</th>
+                            <th scope="col">Offer Title</th>
+                            <th scope="col">Offer Description</th>
+                            <th scope="col">Candidacy Creation Date</th>
+                            <th scope="col">Type Candidacy</th>
                             <th scope="col">Delete</th>
                             <th scope="col">Make Processing</th>
                             <th scope="col">Accept</th>
@@ -30,13 +41,13 @@
                       </thead>
                       <tbody *ngFor="let p of listCandidacy1">
                          <tr>
-                            <th scope="row">1</th>
-                            <td>{{p.offer.dateExpiration}}</td>
+                           <td>{{p.offer.title}}</td>
+                            <td>{{p.offer.description}}</td>
                             <td>{{p.dateCreation}}</td>
                             <td>{{p.typeCandidacy}}</td>
-                            <td><a class="btn btn-success" (click)="onDelete(p.idCandidacy)">Delete</a></td>
-                            <td><a class="btn btn-success" (click)="makeProcessing(p.idCandidacy)">On Processing</a></td>
-                            <td> <a class="btn btn-success" (click)="makeAccepted(p.idCandidacy)">Accepted</a></td>
+                            <td><a class="btn btn-warning" (click)="onDelete(p.idCandidacy)">Delete</a></td>
+                            <td><a class="btn btn-info" (click)="makeProcessing(p.idCandidacy)">Processing</a></td>
+                            <td> <a class="btn btn-success" (click)="makeAccepted(p.idCandidacy)"> Accepted</a></td>
                          </tr>
                       </tbody>
                    </table>
