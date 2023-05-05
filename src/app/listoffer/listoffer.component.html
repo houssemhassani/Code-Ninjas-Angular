@@ -1,0 +1,53 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Offers List</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">offers</li>
+             <li class="breadcrumb-item active">List</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Offers</h5>
+                  <!-- <p>Add lightweight datatables to your project.</p>-->
+                   <table class="table datatable">
+                      <thead>
+                         <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Offer Details</th>
+                         </tr>
+                      </thead>
+                      <tbody *ngFor="let p of listOffer">
+                         <tr>
+                            <th scope="row">1</th>
+                            <td>
+                              <div class="card">
+                                <div class="card-body">
+                                   <h5 class="card-title">Title :{{p.title}}</h5>
+                                   <h6 class="card-subtitle mb-2 text-muted">Score :Nombre Place Disponible :  {{p.nbrPlaceDisponible}}</h6>
+                                   <h6 class="card-subtitle mb-2 text-muted">Score : {{p.scoreOffer}}</h6>
+                                   <h6 class="card-subtitle mb-2 text-muted">Date exiration {{p.dateExpiration}}</h6>
+                                   
+                                   <p class="card-text"> Descrition: {{p.description}}</p>
+                                   <p class="card-text"><a (click)="addCandidacy(p.idOffer)" class="btn btn-primary">Apply</a></p>
+                                   
+                                </div>
+                             </div>
+                           </td>
+                         </tr>
+                         
+                         
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

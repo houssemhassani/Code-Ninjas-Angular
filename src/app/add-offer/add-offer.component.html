@@ -1,0 +1,66 @@
+<main id="main" class="main">
+
+    <a routerLink="offers" routerLink="/offers" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+           <h5 class="mb-1">Back To List Of Offers</h5>
+        </div>
+     </a>
+    
+                         <form (ngSubmit)="addOffer()" #useForm="ngForm" >
+                            <h2>Add offer</h2>
+                            <small>Please Fill In All Fields</small>
+                            <div class="row mb-3">
+                               <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label" >Title</label>
+                               <div class="col-md-8 col-lg-9"> <input name="Title" type="text" ngModel="offer.title" class="form-control" id="title"></div>
+                            </div>
+                            <div class="row mb-3">
+                               <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Description</label>
+                               <div class="col-md-8 col-lg-9"> <input name="description" type="text" class="form-control" id="description"></div>
+                            </div>
+                            <div class="row mb-3">
+                               <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Score Requested</label>
+                               <div class="col-md-8 col-lg-9"> <input name="scoreRequested" type="number" class="form-control" id="scoreRequested"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Number Of Candidates Requested </label>
+                                <div class="col-md-8 col-lg-9"> <input name="nbrplace" type="number" class="form-control" id="nbrplace"></div>
+                             </div>
+                             <div class="row mb-3">
+                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Expiration Date </label>
+                                <div class="col-md-8 col-lg-9"> <input name="nbrplace" type="date" class="form-control" id="nbrplace"></div>
+                             </div>
+                             <div class="row mb-3">
+                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Expiration Date </label>
+                                <div class="col-md-8 col-lg-9"> <input name="nbrplace" type="checkbox" value="BI" class="form-control" id="nbrplace"></div>
+                             </div>
+                            <div class="text-center"> <button type="submit" class="btn btn-primary">Change Password</button></div>
+                         </form>
+
+                         <div class="card">
+                            <div class="card-body">
+                               <h5 class="card-title">Disabled Backdrop</h5>
+                               <p>You can disable the backdrop by adding <code>data-bs-backdrop="false"</code> to <code>.modal-dialog</code></p>
+                               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop"> Launch Modal </button>
+                               <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                  <div class="modal-dialog">
+                                     <div class="modal-content">
+                                        <div class="modal-header">
+                                           <h5 class="modal-title">Apply</h5>
+                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                 <div class="row mb-3">
+                                                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Expiration Date </label>
+                                                    <div class="col-md-8 col-lg-9"> <input name="nbrplace" type="date" class="form-control" id="nbrplace"></div>
+                                                 </div>
+                                                <div class="text-center"> <button type="submit" class="btn btn-primary">Change Password</button></div>
+                                             </form>
+                                        </div>
+                                        <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button></div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+ </main>
