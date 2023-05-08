@@ -5,11 +5,12 @@ import { CookieService } from 'ngx-cookie-service';
 ;
 import { Router } from '@angular/router';
 import { User } from 'src/model/User';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  
+  private baseUrl = 'http://localhost:8081/pidev/api/auth';
   public dataSubject = new BehaviorSubject<string>('Empty');
   public data$ = this.dataSubject.asObservable();
   user = new Subject<User>();
@@ -18,7 +19,7 @@ export class AuthService {
     const url = 'http://localhost:8081/pidev/api/auth/login';
     const requestBody = {
       username: username,
-      password: password
+      password: password,
     };
     return this.http.post<any>(url, requestBody)
       .pipe(
@@ -27,16 +28,27 @@ export class AuthService {
           const expirationDate = new Date(new Date().getTime() + resData.expires_in * 1000);
           const user = new User(resData.username,resData.session_state,resData.access_token,expirationDate);
           this.user.next(user);
-          // this.cookieservice.set('token', resData.access_token, expirationDate);
+          console.log("data",resData.role);
+          this.cookieservice.set('token', resData.access_token, expirationDate);
+
           localStorage.setItem("token",resData.authenticationToken);
-          localStorage.setItem("username",resData.username)
-          console.log("data",resData); 
+          localStorage.setItem("username",resData.username);
+        
+        
   
         })
       );
 
   }
 
+
+  getUserByUsername(username: string): Observable<User> {
+    const url = `${this.baseUrl}/${username}`;
+    return this.http.get<User>(url);
+  }
+  
+
+  
 
 
 
